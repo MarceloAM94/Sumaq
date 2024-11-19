@@ -1,0 +1,140 @@
+/* Importación de fuente y configuración de variables */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+
+:root {
+    --color-primario: #D9B9A0; /* Beige cálido */
+    --color-secundario: #F1ECE8; /* Beige suave */
+    --color-fondo: #F5F1E1; /* Beige suave para el fondo */
+    --color-texto: #545454; /* Gris oscuro para el texto */
+    --color-resaltado: #C79A71; /* Marrón más fuerte para botones y enlaces */
+    --color-fondo-oscuro: #3B2F28; /* Marrón oscuro para detalles y pie de página */
+    --color-acento: #8A6E58; /* Marrón más oscuro */
+}
+
+/* Reset de estilos */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    line-height: 1.6;
+}
+
+/* Estilo de la barra de desplazamiento */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-acento);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-secundario);
+    border-radius: 6px;
+    border: 2px solid var(--color-acento);
+}
+
+/* Encabezado */
+header {
+    background-color: var(--color-primario);
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+/* Navegación */
+.navbar-custom {
+    background-color: var(--color-secundario);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: var(--color-texto);
+    transition: color 0.3s ease, background-color 0.3s ease;
+    font-weight: 500;
+}
+
+.navbar-custom .navbar-nav .nav-link:hover,
+.navbar-custom .navbar-nav .nav-link.active {
+    color: var(--color-secundario);
+    background-color: var(--color-primario);
+    border-radius: 5px;
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Botones */
+.botones {
+    background-color: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    
+}
+
+.botones:hover {
+    background-color: var(--color-resaltado);
+    color: white;
+}
+
+/* Ajustes para los botones de Bootstrap */
+.btn {
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--color-resaltado);
+    color: white;
+    border-color: var(--color-resaltado);
+}
+
+/* Pie de página */
+footer {
+    background-color: var(--color-fondo-oscuro);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 0.5rem;
+    }
+}
+

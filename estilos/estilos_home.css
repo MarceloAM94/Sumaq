@@ -1,0 +1,104 @@
+/* Estilos específicos para la página principal */
+
+/* Estilos para la sección del banner */
+.banner {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente si tiene espacio extra */
+    padding: 0px 0; /* Espaciado superior e inferior */
+}
+
+/* Estilos para la imagen dentro del banner */
+.banner-contenido {
+    width: 100%;
+    overflow: hidden; /* Asegura que no se desborde la imagen */
+}
+
+/* Estilo para la imagen */
+.bannersito {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Hace que la imagen cubra todo el contenedor, manteniendo su proporción */
+}
+
+.productos-destacados, .ofertas {
+    margin: 3rem 0;
+}
+
+.productos-destacados h3, .ofertas h3 {
+    color: var(--color-primario);
+    text-align: center;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.productos-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.producto {
+    background-color: var(--color-resaltado);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.producto h4 {
+    color: var(--color-primario);
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.producto p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    color: var(--color-texto);
+}
+
+#carrito-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+#carrito-flotante img {
+    width: 40px;
+    height: 40px;
+}
+
+footer .redes-sociales, footer .enlaces-adicionales {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+footer .redes-sociales a, footer .enlaces-adicionales a {
+    color: var(--color-texto);
+    margin: 0 0.5rem;
+    text-decoration: none;
+}
+
+footer .redes-sociales a:hover, footer .enlaces-adicionales a:hover {
+    color: var(--color-secundario);
+}

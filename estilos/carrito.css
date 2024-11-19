@@ -1,0 +1,76 @@
+/* Estilos para la tabla del carrito */
+.table {
+    width: 100%;
+    margin-top: 40px;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+}
+
+.table th {
+    background-color: #d9b9a0; /* Beige suave */
+    color: #545454;
+}
+
+.table td {
+    font-size: 1.1em;
+    color: #545454;
+}
+
+.table tr:hover {
+    background-color: #f1ece8; /* Resalta las filas al pasar el ratón */
+}
+
+/* Estilos del Total */
+h3 {
+    text-align: right;
+    font-size: 1.5em;
+    color: #545454;
+    margin-top: 20px;
+}
+
+.botones {
+    display: inline-block;
+    background-color: #d9b9a0; /* Beige suave */
+    color: #545454;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.botones:hover {
+    background-color: #f1ece8;
+    color: #545454;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el mensaje si el carrito está vacío */
+p {
+    text-align: center;
+    font-size: 1.2em;
+    color: #545454;
+}
+
+/* Estilos para las secciones de la página */
+main {
+    background-color: #ffffff;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Centrado del texto */
+.text-center {
+    text-align: center;
+}
