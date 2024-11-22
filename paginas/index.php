@@ -22,7 +22,7 @@
                         <ul class="navbar-nav">
                             <li class="nav-item"><a class="nav-link active" href="index.php">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="catalogo.php">Catálogo de Productos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ofertas.php">Ofertas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="nosotros.php">Nosotros</a></li>
                             <li class="nav-item"><a class="nav-link" href="contacto.php">Contacto</a></li>
                         </ul>
                     </div>
@@ -54,8 +54,11 @@
                 die("Conexión fallida: " . $conexion->connect_error);
             }
 
-            // Consulta para obtener los productos
-            $sql = "SELECT id_producto, nombre, descripcion, precio, imagen_url FROM productos";
+            // Consulta para obtener los 4 productos con mayor precio
+            $sql = "SELECT id_producto, nombre, descripcion, precio, imagen_url 
+            FROM productos 
+            ORDER BY precio DESC 
+            LIMIT 4";
             $resultado = $conexion->query($sql);
 
             // Verificar si hay productos y mostrarlos
@@ -64,11 +67,11 @@
                     echo '<div class="producto">';
                     echo '<img src="' . htmlspecialchars($producto["imagen_url"]) . '" alt="' . htmlspecialchars($producto["nombre"]) . '">';
                     echo '<h4>' . htmlspecialchars($producto["nombre"]) . '</h4>';
-                    echo '<p><strong>$' . htmlspecialchars($producto["precio"]) . '</strong></p>';
+                    echo '<p><strong>S/ ' . number_format($producto["precio"], 2) . '</strong></p>'; // Formato de moneda
                     echo '<form class="form-agregar-carrito" method="post">';
                     echo '<input type="hidden" name="id_producto" value="' . htmlspecialchars($producto["id_producto"]) . '">';
                     echo '<input type="hidden" name="nombre" value="' . htmlspecialchars($producto["nombre"]) . '">';
-                    echo '<input type="hidden" name="precio" value="' . htmlspecialchars($producto["precio"]) . '">';
+                    echo '<input type="hidden" name="precio" value="' . number_format($producto["precio"], 2) . '">'; // Formato para envío
                     echo '<button class="botones" type="button">Añadir al Carrito</button>';
                     echo '</form>';
                     echo '</div>';
@@ -76,7 +79,6 @@
             } else {
                 echo "<p>No hay productos destacados disponibles.</p>";
             }
-
             // Cerrar conexión
             $conexion->close();
             ?>
@@ -97,14 +99,19 @@
 
             if ($resultado_ofertas->num_rows > 0) {
                 while ($producto = $resultado_ofertas->fetch_assoc()) {
-                    $precio_descuento = $producto["precio"] * 0.7; // Aplicando un descuento del 30%
+                    $precio_descuento = $producto["precio"] * 0.7; // Aplicar descuento del 30%
                     echo '<div class="producto">';
                     echo '<img src="' . htmlspecialchars($producto["imagen_url"]) . '" alt="' . htmlspecialchars($producto["nombre"]) . '">';
                     echo '<h4>' . htmlspecialchars($producto["nombre"]) . '</h4>';
-                    echo '<p><del>$' . htmlspecialchars($producto["precio"]) . '</del> $' . number_format($precio_descuento, 2) . '</p>'; // Precio con descuento
-                    echo '<button class="botones">Añadir al Carrito</button>';
+                    echo '<p><del>S/ ' . number_format($producto["precio"], 2) . '</del> S/ ' . number_format($precio_descuento, 2) . '</p>'; // Formato de precios
+                    echo '<form class="form-agregar-carrito" method="post">';
+                    echo '<input type="hidden" name="id_producto" value="' . htmlspecialchars($producto["id_producto"]) . '">';
+                    echo '<input type="hidden" name="nombre" value="' . htmlspecialchars($producto["nombre"]) . '">';
+                    echo '<input type="hidden" name="precio" value="' . number_format($precio_descuento, 2) . '">'; // Formato para envío
+                    echo '<button class="botones" type="button">Añadir al Carrito</button>';
+                    echo '</form>';
                     echo '</div>';
-                }
+                }                
             } else {
                 echo "<p>No hay ofertas disponibles.</p>";
             }

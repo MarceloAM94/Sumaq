@@ -25,7 +25,7 @@ session_start();
                         <ul class="navbar-nav">
                             <li class="nav-item"><a class="nav-link active" href="index.php">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="catalogo.php">Catálogo de Productos</a></li>
-                            <li class="nav-item"><a class="nav-link" href="ofertas.php">Ofertas</a></li>
+                            <li class="nav-item"><a class="nav-link" href="nosotros.php">Nosotros</a></li>
                             <li class="nav-item"><a class="nav-link" href="contacto.php">Contacto</a></li>
                         </ul>
                     </div>
@@ -55,15 +55,15 @@ session_start();
                         $total += $subtotal;
                     ?>
                         <tr>
-                            <td><?php echo $producto['nombre']; ?></td>
-                            <td>$<?php echo number_format($producto['precio'], 2); ?></td>
-                            <td><?php echo $producto['cantidad']; ?></td>
-                            <td>$<?php echo number_format($subtotal, 2); ?></td>
+                            <td><?php echo htmlspecialchars($producto['nombre']); ?></td>
+                            <td>S/ <?php echo number_format($producto['precio'], 2); ?></td> <!-- Cambiado a soles -->
+                            <td><?php echo htmlspecialchars($producto['cantidad']); ?></td>
+                            <td>S/ <?php echo number_format($subtotal, 2); ?></td> <!-- Cambiado a soles -->
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <h3>Total: $<?php echo number_format($total, 2); ?></h3>
+            <h3>Total: S/ <?php echo number_format($total, 2); ?></h3> <!-- Cambiado a soles -->
             
             <!-- Botón para finalizar la compra -->
             <a href="finalizar_compra.php" class="botones">Finalizar Compra</a>
@@ -71,6 +71,7 @@ session_start();
             <p>No hay productos en el carrito.</p>
         <?php endif; ?>
     </main>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
